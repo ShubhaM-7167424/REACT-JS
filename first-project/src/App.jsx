@@ -1,27 +1,36 @@
+import { useState } from "react";
 import "./App.css";
-import Product from "./Product";
-import User from "./User";
+import Country from "./Country";
 
 function App() {
+
+    let [isLoggedIn, setIsLoggedIn] = useState(true);
+
+    let [countries, setCountries] = useState([
+        { name: "Nepal", capital: "kathmandu", population: "230M" },
+        { name: "India", capital: "Delhi", population: "1B" },
+        { name: "USA", capital: "Washington DC", population: "600M" },
+    ]);
+
+    function loadNewCountries() {
+        setCountries([
+            { name: "Germany", capital: "Berlin", population: "90M" },
+            { name: "France", capital: "Paris", population: "70M" },
+            { name: "Japan", capital: "Tokyo", population: "130M" },
+        ]);
+    }
+
     return (
         <div>
-            <h1>Main Component</h1>
 
-            <Product
-                name="Samsung M51"
-                price="10000"
-                specs={{ ram: "2gb", size: "19cm" }}
-                category={["Electronics", "mobile"]}
-            />
+            <h1>Components</h1>
+            <h2>{isLoggedIn ? "Logged In" : "Logged Out"}</h2>
+            <button onClick={loadNewCountries}>Load New Countries</button>
 
-            <Product
-                name="DSLR Camera"
-                price="150000"
-                specs={{ ram: "4gb", size: "22cm" }}
-                category={["Electronics", "mobile"]}
-            />
+            {countries.map((country) => {
+                return <Country name={country.name} capital={country.capital} population={country.population} />;
+            })}
 
-            <User name="Kamal" age="35"></User>
         </div>
     );
 }

@@ -27,5 +27,6 @@ props, state, event Handling
 ======================================================================================================
 Virtual DOM, 
 Building Components using loops
-Conditional Rendering of Components
+Conditional Rendering of Components => use ternary operator instead of if else bcz 
+                              ternary operator return but if else doesn't return 
 ======================================================================================================
