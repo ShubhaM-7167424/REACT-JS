@@ -1,0 +1,31 @@
+React - Javascript library for building user interfaces and interactions
+
+React - components based approach
+
+components - a piece of UI/webpage
+
+Benefits of react
+==================
+- reusablility
+- less lines of code
+- more readable
+- maintainable
+
+components - is nothing but a function which is returning some HTML code
+
+vite - Javascript build tool
+
+props - props are the way of giving properties to the components
+      
+state - data of a component
+
+normal variable - whenever the normal variable changes the components will not update
+state variable - whenever the state variable changes the react will rerender the updated component
+
+======================================================================================================
+props, state, event Handling
+======================================================================================================
+Virtual DOM, 
+Building Components using loops
+Conditional Rendering of Components
+======================================================================================================
