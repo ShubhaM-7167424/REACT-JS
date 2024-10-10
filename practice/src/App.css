@@ -1,0 +1,13 @@
+
+.product{
+        padding: 20px;
+        width: fit-content;
+        background-color: red;
+        margin: 10px;
+}
+.user{
+        padding: 20px;
+        width: fit-content;
+        background-color: aqua;
+        margin: 10px;
+}
