@@ -6,7 +6,7 @@ import User from "./User";
 
 function App() {
 
-    let [isLoggedIn, setIsLoggedIn] = useState(false)
+    let [isLoggedIn, setIsLoggedIn] = useState(true)
 
     let [countries, setCountries] = useState([
         { name: "Nepal", capital: "kathmandu", population: "230M" },
@@ -27,19 +27,16 @@ function App() {
         <button onClick={loadNewCountries}>Load New Countries</button>
 
             {
-                isLoggedIn ? <h1>Logged In</h1> : <h1>Logged Out</h1>
-            }
-
-
-
-            {
-                countries.map((country)=>{
+                isLoggedIn ? countries.map((country)=>{
                     return (
                         <Country name={country.name} capital={country.capital} population={country.population} />
                     )
-                })
-   
+                }) : <h1>Logged Out</h1>
             }
+
+
+
+          
 
         </>
     );
