@@ -11,3 +11,9 @@
         background-color: aqua;
         margin: 10px;
 }
+.country{
+        width: fit-content;
+        padding: 20px;
+        background-color: fuchsia;
+        margin: 10px;
+}
