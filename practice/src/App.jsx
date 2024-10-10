@@ -1,12 +1,12 @@
 import "./App.css";
 import Product from "./Product";
+import User from "./User";
 
 
 function App() {
     return (
         <>
-            <Product name='Iphone 15'  price= {150000} specs={{ram: '4gb', color: 'Gold'}} category= {['mobile', 'electronics']} />
-            <Product name='Samsung S4'  price= {50000} specs={{ram: '6gb', color: 'Blue'}} category= {['mobile', 'electronics']} />
+            <User/>           
         </>
     );
 }
