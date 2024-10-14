@@ -1,0 +1,10 @@
+*{
+  margin: 0;padding: 0;box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.product{
+  width: fit-content;
+  padding: 20px;
+  background-color: gray;
+  margin: 20px;
+}

@@ -1,0 +1,15 @@
+LifeCycle of Components
+=> Every Component of react has a life Cycle.
+
+Mounting => when the Component is first render in the browser
+Updating => when the Component is re-render
+UnMounting => when the Component is removed
+
+useEffect hook => is connected to the LifeCycle of a Component
+               => and this hook is called Every time when something happened
+                to the LifeCycle of a Component
+
+useEffect => render , re-render
+
+=> when the state variable changes the Components re-render
+=> when Components re-render the useEffect is called
