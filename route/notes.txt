@@ -1,0 +1,5 @@
+Routing => Opening or accessing something based on a path/route
+
+state var => changed value will persist but cause re-render
+normal var => doesnot cause re-render but doesnot persist
+useRef => changed value will persist and it will not cause re-render

@@ -1,0 +1,48 @@
+.nav{
+    width: 100%;
+    padding: 20px;
+    background-color: gray;
+}
+.nav > ul{
+    list-style-type: none;
+    display: flex;
+    column-gap: 20px;
+}
+.nav > ul li{
+    cursor: pointer;
+}
+
+.about{
+    width: 100%;
+    padding: 20px;
+    background-color: skyblue;
+}
+
+.products{
+    width: 100%;
+    padding: 50px;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: space-between;
+}
+.product{
+    background-color: deeppink;
+    width: 200px;
+    height: 300px;
+    font-size: 30px;
+}
+
+.services{
+    width: 100%;
+    padding: 50px;
+    background-color: lightsalmon;
+    display: flex;
+    justify-content: space-between;
+}
+
+.service{
+    background-color: lawngreen;
+    font-size: 30px;
+    width: 200px;
+    height: 300px;
+}
