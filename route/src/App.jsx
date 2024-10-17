@@ -9,13 +9,16 @@ import Header from './components/Header'
 import Image from './components/about/Image'
 import Location from './components/about/Location'
 import Price from './components/about/Price'
+import RefDemo from './components/RefDemo'
 
 const App = () => {
   return (
 
     <>
 
-    <BrowserRouter>
+    <RefDemo/>
+
+    {/* <BrowserRouter>
 
       <Header/>
     
@@ -29,7 +32,7 @@ const App = () => {
         <Route path='/product' element={<Product/>} />
         <Route path='/services' element={<Services/>} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
 
     </>
   )
