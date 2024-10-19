@@ -1,26 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 
 const User = () => {
-
-      function doSomething(planet) {
-        console.log('hello ' +planet);
-        
-      }
-
   return (
-    <div className='user'>
-        
-        {/* this doSomething function is already getting called, which is not good */}
-      <button onClick={doSomething('Pluto')}>Do Something</button>
-
-        {/* 1st way to solve this */}
-      <button onClick={doSomething.bind(this, 'Pluto')}>Do Something</button>
-
-        {/* 2nd Way to solve this */}
-      <button onClick={() => {doSomething('Pluto')}}>Do Something</button>
-
-    </div>
+    <>
+        <h1>Users</h1>
+        <div className="users">
+            <div className="user"><Link to={'/user/shubham'}>Shubham</Link></div>
+            <div className="user"><Link to={'/user/vijay'}>Vijay</Link></div>
+            <div className="user"><Link to={'/user/saurabh'}>Saurabh</Link></div>
+        </div>
+        <Outlet/>
+    </>
   )
 }
 
