@@ -1,27 +1,34 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from './components/Login'
-import Register from './components/Register'
-import NotFound from './components/NotFound'
-import './App.css'
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import NotFound from "./components/NotFound";
+import Track from "./components/Track";
+import "./App.css";
+import { UserContext } from "./contexts/UserContext";
+import Private from "./components/Private";
+import Demo from "./components/Demo";
 
 const App = () => {
-  return (
-    <div>
-      <BrowserRouter>
+    // creating a global state variable
+    const [loggedUser, setLoggedUser] = useState(localStorage.getItem("nutrify-user"));
 
-        <Routes>
+    return (
+        <div>
+            <UserContext.Provider value={{ loggedUser, setLoggedUser }}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Login />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/track" element={<Private Component={Track} />} />
+                        <Route path="/demo" element={<Private Component={Demo} />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </BrowserRouter>
+            </UserContext.Provider>
+        </div>
+    );
+};
 
-          <Route path='/' element={<Login />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='*' element={<NotFound />} />
-
-        </Routes>
-
-      </BrowserRouter>
-    </div>
-  )
-}
-
-export default App
+export default App;
