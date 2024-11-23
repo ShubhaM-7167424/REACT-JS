@@ -6,9 +6,7 @@ import { Navigate } from "react-router-dom"
 const Private = (props) => {
 
       const loggedData = useContext(UserContext)
-
-      console.log(loggedData);
-      
+      console.log(loggedData);      
 
   return (
       
