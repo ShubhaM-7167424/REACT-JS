@@ -132,3 +132,15 @@ a {
     padding: 5px 0;
     /* background-color: green; */
 }
+.track-control{
+    width: 100%;
+    display: flex;
+    column-gap: 2%;
+}
+.track-control > .inp{
+    width: 68%;
+}
+.track-control > .btn{
+    width: 30%;
+    padding: 10px 30px;
+}

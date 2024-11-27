@@ -23,8 +23,6 @@ const Track = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
-
                     if (data.message === undefined) {
                         setFoodItems(data);
                     } else {
@@ -45,7 +43,6 @@ const Track = () => {
                     onChange={searchFood}
                     type="search"
                     placeholder="Search Food Item"
-                    
                 />
 
                 {foodItems.length !== 0 ? (

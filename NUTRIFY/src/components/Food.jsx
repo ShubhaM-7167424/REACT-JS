@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useState } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 const Food = (props) => {
     const [eatenQuantity, setEatenQuantity] = useState(100);
     const [food, setFood] = useState({});
     const [foodInitial, setFoodInitial] = useState(props.food);
+    const loggedData = useContext(UserContext);
 
     useEffect(() => {
-        setFood(props.food);
+        setFood(props.food);        
+        console.log(loggedData);
+        
     }, [props.food]);
 
     function calculateMacros(event) {
@@ -30,6 +34,39 @@ const Food = (props) => {
         }
     }
 
+    function trackFoodItem() {
+        let trackFoodItem={
+            userId : loggedData.loggedUser.userid,
+            foodId : food._id,
+            details: {
+                protein: food.protein,
+                carbohydrates: food.carbohydrates,
+                fat: food.fat,
+                fiber: food.fiber,
+                calories: food.calories,
+            },
+            quantity : eatenQuantity
+        }
+        console.log(trackFoodItem);
+
+        fetch("http://localhost:8000/track", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + loggedData.loggedUser.token
+            },
+            body: JSON.stringify(trackFoodItem)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        
+    }
+
     return (
         <div className="food">
             <div className="food-img">
@@ -37,7 +74,7 @@ const Food = (props) => {
             </div>
 
             <h3>
-                {food.name} ({food.calories}Cal for {eatenQuantity}Gm){" "}
+                {food.name} ({food.calories}Cal for {eatenQuantity}Gm)
             </h3>
 
             <div className="nutrient">
@@ -60,14 +97,16 @@ const Food = (props) => {
                 <p className="n-value">{food.fiber}g</p>
             </div>
 
-            <input
-                type="number"
-                className="inp"
-                onChange={calculateMacros}
-                placeholder="Quantity in Grams"
-            />
+            <div className="track-control">
+                <input
+                    type="number"
+                    className="inp"
+                    onChange={calculateMacros}
+                    placeholder="Quantity in Grams"
+                />
 
-            <button className="btn">track this food</button>
+                <button className="btn" onClick={trackFoodItem} >track</button>
+            </div>
         </div>
     );
 };
