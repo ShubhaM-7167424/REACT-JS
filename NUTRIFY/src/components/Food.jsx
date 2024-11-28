@@ -5,12 +5,12 @@ import { UserContext } from "../contexts/UserContext";
 const Food = (props) => {
     const [eatenQuantity, setEatenQuantity] = useState(100);
     const [food, setFood] = useState({});
-    const [foodInitial, setFoodInitial] = useState(props.food);
+    const [foodInitial, setFoodInitial] = useState({});
     const loggedData = useContext(UserContext);
 
     useEffect(() => {
         setFood(props.food);        
-        console.log(loggedData);
+        setFoodInitial(props.food);
         
     }, [props.food]);
 
@@ -38,6 +38,7 @@ const Food = (props) => {
         let trackFoodItem={
             userId : loggedData.loggedUser.userid,
             foodId : food._id,
+            quantity : eatenQuantity,
             details: {
                 protein: food.protein,
                 carbohydrates: food.carbohydrates,
@@ -45,9 +46,8 @@ const Food = (props) => {
                 fiber: food.fiber,
                 calories: food.calories,
             },
-            quantity : eatenQuantity
         }
-        console.log(trackFoodItem);
+        // console.log(trackFoodItem);
 
         fetch("http://localhost:8000/track", {
             method: "POST",

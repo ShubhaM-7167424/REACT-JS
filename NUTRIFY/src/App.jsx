@@ -7,7 +7,7 @@ import Track from "./components/Track";
 import "./App.css";
 import { UserContext } from "./contexts/UserContext";
 import Private from "./components/Private";
-import { useEffect } from "react";
+import Diet from "./components/Diet";
 
 const App = () => {
     // creating a global state variable
@@ -16,12 +16,13 @@ const App = () => {
     return (
         <div>
             <UserContext.Provider value={{ loggedUser, setLoggedUser }}>
-                <BrowserRouter> 
+                <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Login />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/track" element={<Private Component={Track} />} />
+                        <Route path="/diet" element={<Private Component={Diet} />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>

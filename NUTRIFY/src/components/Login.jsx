@@ -54,7 +54,7 @@ const Login = () => {
                     //* we are storing the data in the context variable so , we can access that data in any of the component.
                     loggedData.setLoggedUser(data);
 
-                    navigate("/track");
+                    navigate("/diet");
                 }
             })
             .catch((error) => console.error(error));

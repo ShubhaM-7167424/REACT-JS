@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import Food from "./Food";
+import Header from "./Header";
 
 const Track = () => {
     const loggedData = useContext(UserContext);
@@ -37,6 +38,9 @@ const Track = () => {
 
     return (
         <section className="container track-container">
+            
+            <Header/>
+
             <div className="search">
                 <input
                     className="search-inp"
